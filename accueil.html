@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <!-- Tailwind CSS via CDN (pour le développement) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Votre contenu ici -->
+    <header class="bg-gray-800 shadow-sm">
+        <nav class="bg-gray-800 shadow-lg">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex justify-between">
+                    <div class="flex space-x-7">
+                        <div>
+                            <a href="#" class="flex items-center py-4 px-2">
+                                <span class="text-2xl md:text-3xl font-semibold text-gray-500 text-lg">RANDIMBISOAHERINIRINA Euben José Tyran</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#home" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Accueil</a>
+                        <a href="#project" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Projets</a>
+                        <a href="#competences" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Compétences</a>
+                        <a href="#contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Contact</a>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button class="outline-none mobile-menu-button">
+                            <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
+                                x-show="!showMenu"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+
+
+    <section id="accueil" class="py-20 bg-gradient-to-r from-indigo-500 to-gray-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Bonjour, je suis <span class="text-yellow-500">RANDIMBISOAHERINIRINA Euben José Tyran</span></h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-800 mb-6">Développeur Full Stack Junior</h2>
+                    <p class="text-gray-800 mb-8 text-lg">Je crée des applications web modernes et réactives avec Django et JavaScript.</p>
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Me contacter</a>
+                    <a href="image/cv1.pdf" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" download="cv1.pdf"> Télecharger mon CV</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gray-500 shadow-xl">
+                        <!-- Remplacez par votre photo -->
+                        <img src="image/image.jpg" alt="Photo de profil" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="py-16 bg-gray">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Mes Réalisations</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Découvrez mes projets les plus récents avec démonstrations interactives</p>
+            
+            <!-- Filtres par catégorie -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn px-4 py-2 rounded-full bg-indigo-600 text-white" data-filter="all">Tous</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="frontend">Frontend</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="backend">Backend</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="fullstack">Fullstack</button>
+            </div>
+    
+            <!-- Grille de projets -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projet 1 - Avec effet de survol -->
+                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="frontend">
+                    <div class="h-60 overflow-hidden">
+                        <img src="image/Gemini.png" alt="Projet 1" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
+                        <div class="transform translate-y-10 group-hover:translate-y-0 transition duration-500">
+                            <h3 class="text-xl font-bold text-white mb-2">Application PharmaMed</h3>
+                            <p class="text-gray-300 mb-4">Site vitrine avec panier dynamique en Vue JS</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">Vue JS</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">Tailwind</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">MySQL</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="#" class="text-white hover:text-indigo-300 transition">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="text-white hover:text-indigo-300 transition">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="flex items-center px-4 py-2 bg-white text-indigo-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Projet 2 - Avec badge "Nouveau" -->
+                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="fullstack">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">NOUVEAU</span>
+                    </div>
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="Projet 2" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Dashboard Admin</h3>
+                        <p class="text-gray-600 mb-4">Interface complète de gestion de contenu</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded">Vue.js</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded">Node.js</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded">MongoDB</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-indigo-600 font-medium hover:underline">
+                            Détails du projet
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Projet 3 - Avec animation au survol -->
+                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="backend">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://via.placeholder.com/600x400" alt="Projet 3" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-90 transition duration-500 flex items-center justify-center">
+                            <button class="text-white bg-black/30 rounded-full p-4 hover:bg-black/40 transition">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">API RESTful</h3>
+                        <p class="text-gray-600 mb-4">Microservices avec authentification JWT</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded">Express</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded">GraphQL</span>
+                            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded">Redis</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Janvier 2023</span>
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">Voir code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bouton "Voir plus" -->
+            <div class="text-center mt-12">
+                <button class="px-8 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition inline-flex items-center">
+                    Charger plus de projets
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+<section id="competences" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Mes Compétences</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <!-- Colonne Frontend -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-6">
+                    <svg class="w-8 h-8 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <h3 class="text-xl font-bold text-gray-800">Frontend</h3>
+                </div>
+                
+                <div class="space-y-5">
+                    <!-- Compétence 1 -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">HTML/CSS</span>
+                            <span class="text-gray-600">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compétence 2 -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">JavaScript</span>
+                            <span class="text-gray-600">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compétence 3 -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">React</span>
+                            <span class="text-gray-600">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colonne Backend -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-6">
+                    <svg class="w-8 h-8 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                    </svg>
+                    <h3 class="text-xl font-bold text-gray-800">Backend</h3>
+                </div>
+                
+                <div class="space-y-5">
+                    <!-- Compétence 1 -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">Node.js</span>
+                            <span class="text-gray-600">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compétence 2 -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">Python/Django</span>
+                            <span class="text-gray-600">70%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compétence 3 -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">MySQL</span>
+                            <span class="text-gray-600">65%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ajoutez d'autres colonnes au besoin (Mobile, DevOps, etc.) -->
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-6 max-w-4xl">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Contactez-moi</h2>
+            <div class="max-w-2xl mx-auto">
+                <form method="post" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Nom</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Envoyer</button>
+                </form>
+            </div>
+        </div>      
+        <div class="mt-12 flex justify-center space-x-6">
+             <a href="http://github.com/Randimbisoa179" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-github fa-lg"></i>
+                </a>
+                <a href="http://linkedIn.com/" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-twitter fa-lg"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fas fa-envelope fa-lg"></i>
+                </a>
+        </div>
+    </div>
+</section>
+
+
+<footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <h3 class="text-xl font-bold">MonPortfolio</h3>
+                <p class="text-gray-400">© 2025 Tous droits réservés</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="http://github.com/Randimbisoa179" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-github fa-lg"></i>
+                </a>
+                <a href="http://linkedIn.com/" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-twitter fa-lg"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fas fa-envelope fa-lg"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Filtrage des projets
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Mettre à jour le bouton actif
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-indigo-600', 'text-white');
+                b.classList.add('bg-gray-200');
+            });
+            this.classList.add('bg-indigo-600', 'text-white');
+            this.classList.remove('bg-gray-200');
+            
+            // Filtrer les projets
+            const filter = this.dataset.filter;
+            document.querySelectorAll('.project-card').forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    // Animation au scroll (avec Intersection Observer)
+    const projectCards = document.querySelectorAll('.project-card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fadeIn');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    projectCards.forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+<style>
+    .project-card {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .project-card.animate-fadeIn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Délais d'animation différents pour chaque carte */
+    .project-card:nth-child(1) { transition-delay: 0.1s; }
+    .project-card:nth-child(2) { transition-delay: 0.3s; }
+    .project-card:nth-child(3) { transition-delay: 0.5s; }
+    .project-card:nth-child(4) { transition-delay: 0.7s; }
+    .project-card:nth-child(5) { transition-delay: 0.9s; }
+</style>
+</body>
+</html>
