@@ -41,6 +41,23 @@
                                 <path d="M4 6h16M4 12h16M4 18h16"></path>
                             </svg>
                         </button>
+
+                         <!-- Bouton mobile -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="hidden md:hidden mt-2 pb-2">
+            <a href="#accueil" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded">Accueil</a>
+            <a href="#projets" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded">Projets</a>
+            <a href="#competences" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded">Compétences</a>
+            <a href="#contact" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded">Contact</a>
+        </div>
+    
                     </div>
                 </div>
             </div>
@@ -327,8 +344,8 @@
 </section>
 
 
-<footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto px-4">
+<footer class="bg-gray-800 text-white py-8 md:py-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
                 <h3 class="text-xl font-bold">MonPortfolio</h3>
@@ -389,6 +406,11 @@
     projectCards.forEach(card => {
         observer.observe(card);
     });
+
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
 </script>
 
 <style>
@@ -408,6 +430,15 @@
     .project-card:nth-child(3) { transition-delay: 0.5s; }
     .project-card:nth-child(4) { transition-delay: 0.7s; }
     .project-card:nth-child(5) { transition-delay: 0.9s; }
+
+    /* Animation personnalisée */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
 </style>
 </body>
 </html>
