@@ -3,82 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RANDIMBISOAHERINIRINA Euben José Tyran</title>
-    <!-- Tailwind CSS via CDN (pour le développement) -->
+    <title>RANDIMBISOAHERINIRINA Euben José Tyran - Portfolio</title>
+    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Animation des cartes de projet */
+        .project-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .project-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Délais d'animation différents pour chaque carte */
+        .project-card:nth-child(1) { transition-delay: 0.1s; }
+        .project-card:nth-child(2) { transition-delay: 0.3s; }
+        .project-card:nth-child(3) { transition-delay: 0.5s; }
+        .project-card:nth-child(4) { transition-delay: 0.7s; }
+        .project-card:nth-child(5) { transition-delay: 0.9s; }
+        
+        /* Animation du texte */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-text {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Barre de navigation fixe */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(31, 41, 55, 0.95);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* Bouton retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <!-- Votre contenu ici -->
-    <header class="bg-gray-800 shadow-sm">
-        <nav class="bg-gray-800 shadow-lg">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="flex justify-between">
-                    <div class="flex space-x-7">
-                        <div>
-                            <a href="#" class="flex items-center py-4 px-2">
-                                <span class="text-2xl md:text-3xl font-semibold text-gray-500 text-lg">RANDIMBISOAHERINIRINA Euben José Tyran</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hidden md:flex items-center space-x-1">
-                        <a href="#home" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Accueil</a>
-                        <a href="#project" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Projets</a>
-                        <a href="#competences" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Compétences</a>
-                        <a href="#contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Contact</a>
-                    </div>
-                    <div class="md:hidden flex items-center">
-                        <button class="outline-none mobile-menu-button">
-                            <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
-                                x-show="!showMenu"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-
-                         <!-- Bouton mobile -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+<body class="bg-gray-100 pt-16"> <!-- pt-16 pour compenser la navbar fixe -->
+    <!-- Barre de navigation fixe -->
+    <nav class="navbar bg-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#home" class="text-xl font-bold text-white">
+                        <span class="text-blue-400">RANDIMBISOAHERINIRINA</span> Euben José Tyran
+                    </a>
+                </div>
+                
+                <!-- Navigation desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Accueil</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projets</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Compétences</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                </div>
+                
+                <!-- Bouton mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
         
         <!-- Menu mobile -->
-        <div id="mobile-menu" class="hidden md:hidden mt-2 pb-2">
-            <a href="#accueil" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded">Accueil</a>
-            <a href="#projets" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded">Projets</a>
-            <a href="#competences" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded">Compétences</a>
-            <a href="#contact" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded">Contact</a>
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Accueil</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Projets</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Compétences</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Contact</a>
+            </div>
         </div>
-    
+    </nav>
+
+    <!-- Section Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white pt-16">
+        <div class="container mx-auto px-6 py-20 md:py-32">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-text" style="animation-delay: 0.2s;">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Bonjour, je suis <span class="text-yellow-300">Euben José</span></h1>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8">Développeur Full Stack Junior</h2>
+                    <p class="text-lg md:text-xl mb-8 max-w-lg">Je crée des applications web modernes et réactives avec Django et JavaScript.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-white text-indigo-600 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition duration-300 text-center">Me contacter</a>
+                        <a href="image/cv1.pdf" download="CV_Euben_José.pdf" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-bold py-3 px-6 rounded-lg transition duration-300 text-center">Télécharger mon CV</a>
                     </div>
                 </div>
-            </div>
-        </nav>
-        
-    </header>
-
-
-    <section id="accueil" class="py-20 bg-gradient-to-r from-indigo-500 to-gray-600 text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Bonjour, je suis <span class="text-yellow-500">RANDIMBISOAHERINIRINA Euben José Tyran</span></h1>
-                    <h2 class="text-2xl md:text-3xl text-gray-800 mb-6">Développeur Full Stack Junior</h2>
-                    <p class="text-gray-800 mb-8 text-lg">Je crée des applications web modernes et réactives avec Django et JavaScript.</p>
-                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Me contacter</a>
-                    <a href="image/cv1.pdf" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" download="cv1.pdf"> Télecharger mon CV</a>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gray-500 shadow-xl">
-                        <!-- Remplacez par votre photo -->
+                <div class="md:w-1/2 flex justify-center animate-text" style="animation-delay: 0.4s;">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl transform hover:scale-105 transition duration-500">
                         <img src="image/image.jpg" alt="Photo de profil" class="w-full h-full object-cover">
                     </div>
                 </div>
@@ -86,13 +146,16 @@
         </div>
     </section>
 
-    <section id="projets" class="py-16 bg-gray">
+    <!-- Section Projets -->
+    <section id="projects" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Mes Réalisations</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Découvrez mes projets les plus récents avec démonstrations interactives</p>
+            <div class="text-center mb-16 animate-text">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mes Réalisations</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Découvrez mes projets les plus récents avec démonstrations interactives</p>
+            </div>
             
             <!-- Filtres par catégorie -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-text" style="animation-delay: 0.3s;">
                 <button class="filter-btn px-4 py-2 rounded-full bg-indigo-600 text-white" data-filter="all">Tous</button>
                 <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="frontend">Frontend</button>
                 <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="backend">Backend</button>
@@ -104,8 +167,7 @@
                 <!-- Projet 1 - Avec effet de survol -->
                 <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="frontend">
                     <div class="h-60 overflow-hidden">
-                        <img src="image/Gemini.png" alt="Projet 1" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="image/Gemini.png" alt="Projet 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
                         <div class="transform translate-y-10 group-hover:translate-y-0 transition duration-500">
@@ -118,14 +180,10 @@
                             </div>
                             <div class="flex gap-3">
                                 <a href="#" class="text-white hover:text-indigo-300 transition">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
+                                    <i class="fab fa-github fa-lg"></i>
                                 </a>
                                 <a href="#" class="text-white hover:text-indigo-300 transition">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
-                                    </svg>
+                                    <i class="fas fa-external-link-alt fa-lg"></i>
                                 </a>
                                 <a href="#" class="flex items-center px-4 py-2 bg-white text-indigo-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">
                                     Voir le projet
@@ -141,8 +199,7 @@
                         <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">NOUVEAU</span>
                     </div>
                     <div class="h-60 overflow-hidden">
-                        <img src="https://via.placeholder.com/600x400" alt="Projet 2" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Projet 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Dashboard Admin</h3>
@@ -154,9 +211,7 @@
                         </div>
                         <a href="#" class="inline-flex items-center text-indigo-600 font-medium hover:underline">
                             Détails du projet
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+                            <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
@@ -164,14 +219,10 @@
                 <!-- Projet 3 - Avec animation au survol -->
                 <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="backend">
                     <div class="h-60 overflow-hidden relative">
-                        <img src="https://via.placeholder.com/600x400" alt="Projet 3" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Projet 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                         <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-90 transition duration-500 flex items-center justify-center">
                             <button class="text-white bg-black/30 rounded-full p-4 hover:bg-black/40 transition">
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
+                                <i class="fas fa-play fa-lg"></i>
                             </button>
                         </div>
                     </div>
@@ -192,253 +243,335 @@
             </div>
     
             <!-- Bouton "Voir plus" -->
-            <div class="text-center mt-12">
+            <div class="text-center mt-12 animate-text" style="animation-delay: 0.5s;">
                 <button class="px-8 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition inline-flex items-center">
                     Charger plus de projets
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+                    <i class="fas fa-arrow-down ml-2"></i>
                 </button>
             </div>
         </div>
     </section>
 
-
-<section id="competences" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Mes Compétences</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <!-- Colonne Frontend -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="flex items-center mb-6">
-                    <svg class="w-8 h-8 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    <h3 class="text-xl font-bold text-gray-800">Frontend</h3>
+    <!-- Section Compétences -->
+    <section id="skills" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-text">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mes Compétences</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Technologies que j'utilise pour créer des solutions performantes</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Colonne Frontend -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-500 animate-text" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-laptop-code text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Frontend</h3>
+                    </div>
+                    
+                    <div class="space-y-5">
+                        <!-- Compétence 1 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">HTML/CSS</span>
+                                <span class="text-gray-600">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétence 2 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">JavaScript</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétence 3 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">React</span>
+                                <span class="text-gray-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétence 4 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Vue.js</span>
+                                <span class="text-gray-600">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="space-y-5">
-                    <!-- Compétence 1 -->
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium text-gray-700">HTML/CSS</span>
-                            <span class="text-gray-600">95%</span>
+                <!-- Colonne Backend -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition duration-500 animate-text" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-server text-green-600 text-xl"></i>
                         </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 95%"></div>
-                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Backend</h3>
                     </div>
                     
-                    <!-- Compétence 2 -->
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium text-gray-700">JavaScript</span>
-                            <span class="text-gray-600">85%</span>
+                    <div class="space-y-5">
+                        <!-- Compétence 1 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Node.js</span>
+                                <span class="text-gray-600">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
                         </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        
+                        <!-- Compétence 2 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Python/Django</span>
+                                <span class="text-gray-600">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 70%"></div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- Compétence 3 -->
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium text-gray-700">React</span>
-                            <span class="text-gray-600">80%</span>
+                        
+                        <!-- Compétence 3 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">MySQL</span>
+                                <span class="text-gray-600">65%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 65%"></div>
+                            </div>
                         </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+                        
+                        <!-- Compétence 4 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">MongoDB</span>
+                                <span class="text-gray-600">60%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 60%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Colonne Backend -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <div class="flex items-center mb-6">
-                    <svg class="w-8 h-8 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
-                    </svg>
-                    <h3 class="text-xl font-bold text-gray-800">Backend</h3>
+            <!-- Autres compétences -->
+            <div class="mt-12 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.6s;">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">Mobile</h4>
+                    <p class="text-gray-600 text-sm">React Native, Flutter</p>
                 </div>
                 
-                <div class="space-y-5">
-                    <!-- Compétence 1 -->
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium text-gray-700">Node.js</span>
-                            <span class="text-gray-600">75%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 75%"></div>
-                        </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.7s;">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-purple-600 text-2xl"></i>
                     </div>
-                    
-                    <!-- Compétence 2 -->
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium text-gray-700">Python/Django</span>
-                            <span class="text-gray-600">70%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 70%"></div>
-                        </div>
+                    <h4 class="font-bold text-gray-800 mb-2">Outils</h4>
+                    <p class="text-gray-600 text-sm">Git, Docker, Webpack</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.8s;">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cloud text-red-600 text-2xl"></i>
                     </div>
-                    
-                    <!-- Compétence 3 -->
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium text-gray-700">MySQL</span>
-                            <span class="text-gray-600">65%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5">
-                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 65%"></div>
-                        </div>
+                    <h4 class="font-bold text-gray-800 mb-2">Cloud</h4>
+                    <p class="text-gray-600 text-sm">AWS, Firebase</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.9s;">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-paint-brush text-indigo-600 text-2xl"></i>
                     </div>
+                    <h4 class="font-bold text-gray-800 mb-2">UI/UX</h4>
+                    <p class="text-gray-600 text-sm">Figma, Adobe XD</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 1.0s;">
+                    <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-pink-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">SEO</h4>
+                    <p class="text-gray-600 text-sm">Optimisation, Analytics</p>
                 </div>
             </div>
-            
-            <!-- Ajoutez d'autres colonnes au besoin (Mobile, DevOps, etc.) -->
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact" class="py-16 bg-white">
-    <div class="container mx-auto px-6 max-w-4xl">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Contactez-moi</h2>
-            <div class="max-w-2xl mx-auto">
+    <!-- Section Contact -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16 animate-text">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contactez-moi</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Disponible pour des opportunités de collaboration</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-2xl shadow-xl p-8 md:p-12 animate-text" style="animation-delay: 0.2s;">
                 <form method="post" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-gray-700 font-medium mb-2">Nom</label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nom</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                        </div>
                     </div>
                     <div>
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
+                        <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                     </div>
                     <div>
                         <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Envoyer</button>
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                        Envoyer le message
+                    </button>
                 </form>
             </div>
-        </div>      
-        <div class="mt-12 flex justify-center space-x-6">
-             <a href="http://github.com/Randimbisoa179" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
-                <a href="http://linkedIn.com/" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fab fa-linkedin fa-lg"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fab fa-twitter fa-lg"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fas fa-envelope fa-lg"></i>
-                </a>
-        </div>
-    </div>
-</section>
-
-
-<footer class="bg-gray-800 text-white py-8 md:py-10">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <h3 class="text-xl font-bold">MonPortfolio</h3>
-                <p class="text-gray-400">© 2025 Tous droits réservés</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="http://github.com/Randimbisoa179" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
-                <a href="http://linkedIn.com/" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fab fa-linkedin fa-lg"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fab fa-twitter fa-lg"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fas fa-envelope fa-lg"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Filtrage des projets
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Mettre à jour le bouton actif
-            document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('bg-indigo-600', 'text-white');
-                b.classList.add('bg-gray-200');
-            });
-            this.classList.add('bg-indigo-600', 'text-white');
-            this.classList.remove('bg-gray-200');
             
-            // Filtrer les projets
-            const filter = this.dataset.filter;
-            document.querySelectorAll('.project-card').forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
+            <div class="mt-12 flex justify-center space-x-8 animate-text" style="animation-delay: 0.4s;">
+                <a href="http://github.com/Randimbisoa179" target="_blank" class="bg-gray-100 hover:bg-gray-200 w-14 h-14 rounded-full flex items-center justify-center transition duration-300 transform hover:-translate-y-1 shadow-md">
+                    <i class="fab fa-github text-gray-800 text-2xl"></i>
+                </a>
+                <a href="http://linkedin.com/" target="_blank" class="bg-gray-100 hover:bg-gray-200 w-14 h-14 rounded-full flex items-center justify-center transition duration-300 transform hover:-translate-y-1 shadow-md">
+                    <i class="fab fa-linkedin-in text-gray-800 text-2xl"></i>
+                </a>
+                <a href="#" class="bg-gray-100 hover:bg-gray-200 w-14 h-14 rounded-full flex items-center justify-center transition duration-300 transform hover:-translate-y-1 shadow-md">
+                    <i class="fab fa-twitter text-gray-800 text-2xl"></i>
+                </a>
+                <a href="mailto:votre@email.com" class="bg-gray-100 hover:bg-gray-200 w-14 h-14 rounded-full flex items-center justify-center transition duration-300 transform hover:-translate-y-1 shadow-md">
+                    <i class="fas fa-envelope text-gray-800 text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h3 class="text-2xl font-bold mb-2">RANDIMBISOAHERINIRINA Euben José Tyran</h3>
+                    <p class="text-gray-400">Développeur Full Stack Junior</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-400 hover:text-white transition duration-300">Accueil</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition duration-300">Projets</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition duration-300">Compétences</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Tous droits réservés. Conçu avec ❤️ par Euben José</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <a href="#home" class="back-to-top bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-700 transition duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Menu mobile
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Filtrage des projets
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Mettre à jour le bouton actif
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('bg-indigo-600', 'text-white');
+                    b.classList.add('bg-gray-200');
+                });
+                this.classList.add('bg-indigo-600', 'text-white');
+                this.classList.remove('bg-gray-200');
+                
+                // Filtrer les projets
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animation au scroll
+        const animateOnScroll = function() {
+            // Animation des éléments
+            const elements = document.querySelectorAll('.animate-text, .project-card');
+            elements.forEach(el => {
+                const elementPosition = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    el.classList.add('animate');
                 }
             });
-        });
-    });
-
-    // Animation au scroll (avec Intersection Observer)
-    const projectCards = document.querySelectorAll('.project-card');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fadeIn');
+            
+            // Navbar scroll
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
+            
+            // Bouton retour en haut
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        };
+
+        // Observer pour les animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            observer.observe(card);
         });
-    }, { threshold: 0.1 });
 
-    projectCards.forEach(card => {
-        observer.observe(card);
-    });
-
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-    });
-</script>
-
-<style>
-    .project-card {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .project-card.animate-fadeIn {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    /* Délais d'animation différents pour chaque carte */
-    .project-card:nth-child(1) { transition-delay: 0.1s; }
-    .project-card:nth-child(2) { transition-delay: 0.3s; }
-    .project-card:nth-child(3) { transition-delay: 0.5s; }
-    .project-card:nth-child(4) { transition-delay: 0.7s; }
-    .project-card:nth-child(5) { transition-delay: 0.9s; }
-
-    /* Animation personnalisée */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-</style>
+        // Écouteurs d'événements
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
 </body>
 </html>
