@@ -97,8 +97,8 @@
                 <!-- Navigation desktop -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Accueil</a>
-                    <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projets</a>
                     <a href="#skills" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Compétences</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projets</a>
                     <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
                 </div>
                 
@@ -117,8 +117,8 @@
         <div id="mobile-menu" class="md:hidden hidden bg-gray-700">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Accueil</a>
+                 <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Compétences</a>
                 <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Projets</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Compétences</a>
                 <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Contact</a>
             </div>
         </div>
@@ -146,113 +146,7 @@
         </div>
     </section>
 
-    <!-- Section Projets -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 animate-text">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mes Réalisations</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Découvrez mes projets les plus récents avec démonstrations interactives</p>
-            </div>
-            
-            <!-- Filtres par catégorie -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-text" style="animation-delay: 0.3s;">
-                <button class="filter-btn px-4 py-2 rounded-full bg-indigo-600 text-white" data-filter="all">Tous</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="frontend">Frontend</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="backend">Backend</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="fullstack">Fullstack</button>
-            </div>
-    
-            <!-- Grille de projets -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Projet 1 - Avec effet de survol -->
-                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="frontend">
-                    <div class="h-60 overflow-hidden">
-                        <img src="image/Gemini.png" alt="Projet 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
-                        <div class="transform translate-y-10 group-hover:translate-y-0 transition duration-500">
-                            <h3 class="text-xl font-bold text-white mb-2">Application PharmaMed</h3>
-                            <p class="text-gray-300 mb-4">Site vitrine avec panier dynamique en Vue JS</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">Vue JS</span>
-                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">Tailwind</span>
-                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">MySQL</span>
-                            </div>
-                            <div class="flex gap-3">
-                                <a href="#" class="text-white hover:text-indigo-300 transition">
-                                    <i class="fab fa-github fa-lg"></i>
-                                </a>
-                                <a href="#" class="text-white hover:text-indigo-300 transition">
-                                    <i class="fas fa-external-link-alt fa-lg"></i>
-                                </a>
-                                <a href="#" class="flex items-center px-4 py-2 bg-white text-indigo-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">
-                                    Voir le projet
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Projet 2 - Avec badge "Nouveau" -->
-                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="fullstack">
-                    <div class="absolute top-4 right-4 z-10">
-                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">NOUVEAU</span>
-                    </div>
-                    <div class="h-60 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Projet 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Dashboard Admin</h3>
-                        <p class="text-gray-600 mb-4">Interface complète de gestion de contenu</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded">Vue.js</span>
-                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded">Node.js</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded">MongoDB</span>
-                        </div>
-                        <a href="#" class="inline-flex items-center text-indigo-600 font-medium hover:underline">
-                            Détails du projet
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-    
-                <!-- Projet 3 - Avec animation au survol -->
-                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="backend">
-                    <div class="h-60 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Projet 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-90 transition duration-500 flex items-center justify-center">
-                            <button class="text-white bg-black/30 rounded-full p-4 hover:bg-black/40 transition">
-                                <i class="fas fa-play fa-lg"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">API RESTful</h3>
-                        <p class="text-gray-600 mb-4">Microservices avec authentification JWT</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded">Express</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded">GraphQL</span>
-                            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded">Redis</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Janvier 2023</span>
-                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">Voir code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Bouton "Voir plus" -->
-            <div class="text-center mt-12 animate-text" style="animation-delay: 0.5s;">
-                <button class="px-8 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition inline-flex items-center">
-                    Charger plus de projets
-                    <i class="fas fa-arrow-down ml-2"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Compétences -->
+     <!-- Section Compétences -->
     <section id="skills" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 animate-text">
@@ -419,6 +313,114 @@
         </div>
     </section>
 
+    
+    <!-- Section Projets -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-text">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mes Réalisations</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Découvrez mes projets les plus récents avec démonstrations interactives</p>
+            </div>
+            
+            <!-- Filtres par catégorie -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-text" style="animation-delay: 0.3s;">
+                <button class="filter-btn px-4 py-2 rounded-full bg-indigo-600 text-white" data-filter="all">Tous</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="frontend">Frontend</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="backend">Backend</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition" data-filter="fullstack">Fullstack</button>
+            </div>
+    
+            <!-- Grille de projets -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projet 1 - Avec effet de survol -->
+                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="fullstack">
+                    <div class="h-60 overflow-hidden">
+                        <img src="image/Gemini.png" alt="Projet 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
+                        <div class="transform translate-y-10 group-hover:translate-y-0 transition duration-500">
+                            <h3 class="text-xl font-bold text-white mb-2">Application PharmaMed</h3>
+                            <p class="text-gray-300 mb-4">Site vitrine avec panier dynamique en Vue JS</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">Vue JS</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">Tailwind</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded">MySQL</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="#" class="text-white hover:text-indigo-300 transition">
+                                    <i class="fab fa-github fa-lg"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-indigo-300 transition">
+                                    <i class="fas fa-external-link-alt fa-lg"></i>
+                                </a>
+                                <a href="#" class="flex items-center px-4 py-2 bg-white text-indigo-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Projet 2 - Avec badge "Nouveau" -->
+                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="backend">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">NOUVEAU</span>
+                    </div>
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Projet 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Gestion d'une pharmacie</h3>
+                        <p class="text-gray-600 mb-4">Interface web permettant de faciliter la gestion d'une pharmacie...</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded">Laravel(PHP)</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded">Bootstrap CSS</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded">MySQL</span>
+                        </div>
+                        <a href="https://github.com/Randimbisoa179/pharmaMED" class="inline-flex items-center text-indigo-600 font-medium hover:underline">
+                            Voir le code
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Projet 3 - Avec animation au survol -->
+                <div class="project-card relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" data-category="backend">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Projet 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-90 transition duration-500 flex items-center justify-center">
+                            <button class="text-white bg-black/30 rounded-full p-4 hover:bg-black/40 transition">
+                                <i class="fas fa-play fa-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">API RESTful</h3>
+                        <p class="text-gray-600 mb-4">Microservices avec authentification JWT</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded">Express</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded">GraphQL</span>
+                            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded">Redis</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Janvier 2023</span>
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">Voir code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bouton "Voir plus" -->
+            <div class="text-center mt-12 animate-text" style="animation-delay: 0.5s;">
+                <button class="px-8 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition inline-flex items-center">
+                    Charger plus de projets
+                    <i class="fas fa-arrow-down ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+   
     <!-- Section Contact -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-6 max-w-4xl">
