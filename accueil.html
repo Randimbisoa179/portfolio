@@ -97,9 +97,9 @@
                 <!-- Navigation desktop -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Accueil</a>
+                    <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">A propos</a>
                     <a href="#skills" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Compétences</a>
                     <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projets</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
                 </div>
                 
                 <!-- Bouton mobile -->
@@ -117,9 +117,9 @@
         <div id="mobile-menu" class="md:hidden hidden bg-gray-700">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Accueil</a>
+                 <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">A propos</a>
                  <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Compétences</a>
                 <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Projets</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-600 transition duration-300">Contact</a>
             </div>
         </div>
     </nav>
@@ -133,13 +133,199 @@
                     <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8">Développeur Full Stack Junior</h2>
                     <p class="text-lg md:text-xl mb-8 max-w-lg">Je crée des applications web modernes et réactives avec Django et JavaScript.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact" class="bg-white text-indigo-600 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition duration-300 text-center">Me contacter</a>
+                        <a href="#projects" class="bg-white text-indigo-600 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition duration-300 text-center">Mes projets</a>
                         <a href="image/cv1.pdf" download="cv1.pdf" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-bold py-3 px-6 rounded-lg transition duration-300 text-center">Télécharger mon CV</a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center animate-text" style="animation-delay: 0.4s;">
                     <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl transform hover:scale-105 transition duration-500">
                         <img src="image/image.jpg" alt="Photo de profil" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+   
+    <!-- Section À Propos -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16 animate-text">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">À Propos de Moi</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Découvrez mon parcours et ma passion pour le développement</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Photo et infos personnelles -->
+                <div class="lg:w-1/3 animate-text" style="animation-delay: 0.2s;">
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-8 sticky top-24">
+                        <div class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-indigo-100 mb-6">
+                            <img src="image/image.jpg" alt="Photo de profil" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-center text-gray-800 mb-2">Euben José Tyran</h3>
+                        <p class="text-center text-indigo-600 font-medium mb-6">Développeur Full Stack Junior</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-100 p-2 rounded-lg mr-4">
+                                    <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 text-sm">Localisation</p>
+                                    <p class="font-medium">Antananarivo, Madagascar</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-indigo-100 p-2 rounded-lg mr-4">
+                                    <i class="fas fa-envelope text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 text-sm">Email</p>
+                                    <p class="font-medium">eubenjose@example.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-indigo-100 p-2 rounded-lg mr-4">
+                                    <i class="fas fa-phone text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 text-sm">Téléphone</p>
+                                    <p class="font-medium">+261 34 00 000 00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-indigo-100 p-2 rounded-lg mr-4">
+                                    <i class="fas fa-graduation-cap text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 text-sm">Diplôme</p>
+                                    <p class="font-medium">Licence en Informatique</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 flex justify-center space-x-4">
+                            <a href="http://github.com/Randimbisoa179" target="_blank" class="bg-gray-100 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-github text-gray-800"></i>
+                            </a>
+                            <a href="http://linkedin.com/" target="_blank" class="bg-gray-100 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-linkedin-in text-gray-800"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-twitter text-gray-800"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contenu principal -->
+                <div class="lg:w-2/3">
+                    <!-- Section Présentation -->
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-8 mb-8 animate-text" style="animation-delay: 0.3s;">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Qui suis-je ?</h3>
+                        <p class="text-gray-600 mb-6">
+                            Passionné par les technologies web depuis mon plus jeune âge, je me suis spécialisé dans le développement full stack avec une préférence pour les frameworks JavaScript et Python. Mon objectif est de créer des applications performantes, accessibles et offrant une excellente expérience utilisateur.
+                        </p>
+                        <p class="text-gray-600">
+                            Autodidacte et curieux, j'aime constamment apprendre de nouvelles technologies et améliorer mes compétences. Je suis particulièrement intéressé par les architectures microservices et les bonnes pratiques de développement.
+                        </p>
+                    </div>
+                    
+                    <!-- Section Expérience Professionnelle -->
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-8 mb-8 animate-text" style="animation-delay: 0.4s;">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Expérience Professionnelle</h3>
+                        
+                        <div class="timeline">
+                            <!-- Expérience 1 -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot">
+                                    <i class="fas fa-briefcase text-white text-xs"></i>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-sm">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                                        <h4 class="font-bold text-gray-800">Développeur Full Stack Junior</h4>
+                                        <span class="text-sm text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">2023 - Présent</span>
+                                    </div>
+                                    <p class="text-gray-600 font-medium mb-2">Tech Solutions Madagascar</p>
+                                    <p class="text-gray-600 text-sm mb-4">
+                                        Développement et maintenance d'applications web avec React et Django. Participation à l'architecture des bases de données et mise en place de tests automatisés.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded">React</span>
+                                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded">Django</span>
+                                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded">PostgreSQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Expérience 2 -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot">
+                                    <i class="fas fa-briefcase text-white text-xs"></i>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-sm">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                                        <h4 class="font-bold text-gray-800">Stagiaire Développeur</h4>
+                                        <span class="text-sm text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">2022 - 2023</span>
+                                    </div>
+                                    <p class="text-gray-600 font-medium mb-2">Web Agency Mada</p>
+                                    <p class="text-gray-600 text-sm mb-4">
+                                        Développement de sites vitrines et e-commerce. Intégration de maquettes, création de composants réutilisables et optimisation des performances.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded">Vue.js</span>
+                                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded">Laravel</span>
+                                        <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded">MySQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Section Formation -->
+                    <div class="bg-gray-50 rounded-2xl shadow-lg p-8 animate-text" style="animation-delay: 0.5s;">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Formation</h3>
+                        
+                        <div class="timeline">
+                            <!-- Formation 1 -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot">
+                                    <i class="fas fa-graduation-cap text-white text-xs"></i>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-sm">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                                        <h4 class="font-bold text-gray-800">Licence en Informatique</h4>
+                                        <span class="text-sm text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">2019 - 2022</span>
+                                    </div>
+                                    <p class="text-gray-600 font-medium mb-2">Université d'Antananarivo</p>
+                                    <p class="text-gray-600 text-sm mb-4">
+                                        Spécialisation en développement web et bases de données. Projet de fin d'études sur une plateforme de gestion de contenus avec Django.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Formation 2 -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot">
+                                    <i class="fas fa-graduation-cap text-white text-xs"></i>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-sm">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                                        <h4 class="font-bold text-gray-800">Baccalauréat Scientifique</h4>
+                                        <span class="text-sm text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">2018</span>
+                                    </div>
+                                    <p class="text-gray-600 font-medium mb-2">Lycée Jules Ferry</p>
+                                    <p class="text-gray-600 text-sm">
+                                        Option Sciences de l'Ingénieur avec mention Bien.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -420,57 +606,6 @@
         </div>
     </section>
 
-   
-    <!-- Section Contact -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="text-center mb-16 animate-text">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contactez-moi</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Disponible pour des opportunités de collaboration</p>
-            </div>
-            
-            <div class="bg-gray-50 rounded-2xl shadow-xl p-8 md:p-12 animate-text" style="animation-delay: 0.2s;">
-                <form method="post" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Nom</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
-                        <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                        Envoyer le message
-                    </button>
-                </form>
-            </div>
-            
-            <div class="mt-12 flex justify-center space-x-8 animate-text" style="animation-delay: 0.4s;">
-                <a href="http://github.com/Randimbisoa179" target="_blank" class="bg-gray-100 hover:bg-gray-200 w-14 h-14 rounded-full flex items-center justify-center transition duration-300 transform hover:-translate-y-1 shadow-md">
-                    <i class="fab fa-github text-gray-800 text-2xl"></i>
-                </a>
-                <a href="http://linkedin.com/" target="_blank" class="bg-gray-100 hover:bg-gray-200 w-14 h-14 rounded-full flex items-center justify-center transition duration-300 transform hover:-translate-y-1 shadow-md">
-                    <i class="fab fa-linkedin-in text-gray-800 text-2xl"></i>
-                </a>
-                <a href="#" class="bg-gray-100 hover:bg-gray-200 w-14 h-14 rounded-full flex items-center justify-center transition duration-300 transform hover:-translate-y-1 shadow-md">
-                    <i class="fab fa-twitter text-gray-800 text-2xl"></i>
-                </a>
-                <a href="mailto:votre@email.com" class="bg-gray-100 hover:bg-gray-200 w-14 h-14 rounded-full flex items-center justify-center transition duration-300 transform hover:-translate-y-1 shadow-md">
-                    <i class="fas fa-envelope text-gray-800 text-2xl"></i>
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
