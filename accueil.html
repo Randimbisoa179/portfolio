@@ -6,82 +6,341 @@
     <title>RANDIMBISOAHERINIRINA Euben José Tyran - Portfolio Futuriste</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cosmic: '#0f172a',
+                        nebula: '#1e293b',
+                        plasma: '#6d28d9',
+                        quantum: '#3b82f6',
+                        cyber: '#10b981',
+                        neon: '#00f0ff',
+                        matrix: '#00ff7f',
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                        techno: ['"Share Tech"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'text-gradient': 'text-gradient 6s ease infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'hologram': 'hologram 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'text-gradient': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        glow: {
+                            'from': { 'text-shadow': '0 0 5px #00f0ff, 0 0 10px #00f0ff80, 0 0 15px #00f0ff40' },
+                            'to': { 'text-shadow': '0 0 10px #00f0ff, 0 0 20px #00f0ff80, 0 0 30px #00f0ff40' },
+                        },
+                        hologram: {
+                            '0%': { 'opacity': '0.8', 'filter': 'brightness(1.2)' },
+                            '50%': { 'opacity': '1', 'filter': 'brightness(1.5)' },
+                            '100%': { 'opacity': '0.8', 'filter': 'brightness(1.2)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #6d28d9;
             --secondary: #10b981;
             --accent: #3b82f6;
-            --dark: #1e293b;
+            --dark: #0f172a;
             --light: #f8fafc;
+            --neon: #00f0ff;
+            --matrix: #00ff7f;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             scroll-behavior: smooth;
-            background-color: #0f172a;
+            background-color: var(--dark);
             color: var(--light);
+            overflow-x: hidden;
         }
         
         .futurist-font {
             font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
         }
         
-        /* Effet de verre (glassmorphism) */
+        .tech-font {
+            font-family: 'Share Tech', sans-serif;
+        }
+        
+        /* Effet de verre amélioré */
         .glass {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
         }
         
         .glass-light {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Animation des éléments */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        /* Effet de bordure cybernétique */
+        .cyber-border {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
         }
         
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 0.75rem;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--neon), var(--matrix), var(--quantum));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 1;
+            animation: text-gradient 6s ease infinite;
+            background-size: 300% 300%;
         }
         
-        .floating {
-            animation: float 6s ease-in-out infinite;
+        /* Effet de texte néon */
+        .neon-text {
+            text-shadow: 0 0 5px var(--neon), 
+                         0 0 10px rgba(0, 240, 255, 0.5),
+                         0 0 15px rgba(0, 240, 255, 0.2);
+            animation: glow 2s ease-in-out infinite alternate;
         }
         
-        .pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        /* Effet hologramme */
+        .hologram-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hologram-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(0, 240, 255, 0.1) 20%,
+                transparent 40%,
+                rgba(0, 255, 127, 0.1) 60%,
+                transparent 80%,
+                rgba(59, 130, 246, 0.1)
+            );
+            animation: hologram 8s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Timeline futuriste */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--neon), var(--matrix));
+            box-shadow: 0 0 10px var(--neon), 0 0 20px var(--matrix);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon), var(--matrix));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px var(--neon), 0 0 20px var(--matrix);
+        }
+        
+        /* Effet de grille cyberpunk */
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* Effet de scanlines */
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(
+                    to bottom,
+                    transparent 95%,
+                    rgba(0, 240, 255, 0.1) 96%,
+                    transparent 97%
+                );
+            background-size: 100% 5px;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+        
+        /* Barre de navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        /* Bouton retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, var(--neon), var(--matrix));
+            box-shadow: 0 0 10px var(--neon), 0 0 20px var(--matrix);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Effet de particules avancé */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(0, 240, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+        
+        /* Effet de dégradé animé */
+        .gradient-text {
+            background: linear-gradient(45deg, var(--neon), var(--matrix), var(--quantum));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: text-gradient 6s ease infinite;
+        }
+        
+        /* Effet de curseur personnalisé */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--neon);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: screen;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+        }
+        
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--matrix);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            mix-blend-mode: screen;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s ease-out;
         }
         
         /* Animation des cartes de projet */
         .project-card {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(20px) perspective(1000px) rotateX(10deg);
             transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         .project-card.animate {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) perspective(1000px) rotateX(0);
         }
-        
-        /* Délais d'animation différents pour chaque carte */
-        .project-card:nth-child(1) { transition-delay: 0.1s; }
-        .project-card:nth-child(2) { transition-delay: 0.3s; }
-        .project-card:nth-child(3) { transition-delay: 0.5s; }
-        .project-card:nth-child(4) { transition-delay: 0.7s; }
-        .project-card:nth-child(5) { transition-delay: 0.9s; }
         
         /* Animation du texte */
         @keyframes fadeInUp {
@@ -98,129 +357,19 @@
         .animate-text {
             animation: fadeInUp 0.8s ease-out forwards;
         }
-        
-        /* Barre de navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar.scrolled {
-            background-color: rgba(15, 23, 42, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        
-        /* Bouton retour en haut */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Effet néon */
-        .neon-text {
-            text-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 
-                         0 0 10px rgba(59, 130, 246, 0.3),
-                         0 0 15px rgba(59, 130, 246, 0.2);
-        }
-        
-        /* Effet de bordure animée */
-        .border-gradient {
-            position: relative;
-            border-radius: 0.75rem;
-        }
-        
-        .border-gradient::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 0.75rem;
-            padding: 2px;
-            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .border-gradient:hover::before {
-            opacity: 1;
-        }
-        
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0.5rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            left: -2rem;
-            top: 0;
-            width: 1.5rem;
-            height: 1.5rem;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Effet de particules */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-        }
     </style>
 </head>
-<body class="pt-16"> <!-- pt-16 pour compenser la navbar fixe -->
+<body class="pt-16">
+    <!-- Effet de curseur personnalisé -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <!-- Effet de grille cyberpunk -->
+    <div class="cyber-grid"></div>
+    
+    <!-- Effet de scanlines -->
+    <div class="scanlines"></div>
+    
     <!-- Effet de particules -->
     <div id="particles" class="particles"></div>
     
@@ -230,22 +379,22 @@
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
                     <a href="#home" class="text-xl font-bold text-white flex items-center">
-                        <span class="text-accent neon-text">RANDIMBISOAHERINIRINA</span>
-                        <span class="ml-2 hidden sm:inline">Euben José Tyran</span>
+                        <span class="gradient-text futurist-font">RANDIMBISOAHERINIRINA</span>
+                        <span class="ml-2 hidden sm:inline text-neon">Euben José Tyran</span>
                     </a>
                 </div>
                 
                 <!-- Navigation desktop -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 hover:bg-white/10">Accueil</a>
-                    <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 hover:bg-white/10">À propos</a>
-                    <a href="#skills" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 hover:bg-white/10">Compétences</a>
-                    <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 hover:bg-white/10">Projets</a>
+                    <a href="#home" class="text-gray-300 hover:text-neon px-3 py-2 rounded-md text-sm font-medium transition duration-300 hover:bg-white/10 neon-text">Accueil</a>
+                    <a href="#about" class="text-gray-300 hover:text-neon px-3 py-2 rounded-md text-sm font-medium transition duration-300 hover:bg-white/10">À propos</a>
+                    <a href="#skills" class="text-gray-300 hover:text-neon px-3 py-2 rounded-md text-sm font-medium transition duration-300 hover:bg-white/10">Compétences</a>
+                    <a href="#projects" class="text-gray-300 hover:text-neon px-3 py-2 rounded-md text-sm font-medium transition duration-300 hover:bg-white/10">Projets</a>
                 </div>
                 
                 <!-- Bouton mobile -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-neon focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -257,7 +406,7 @@
         <!-- Menu mobile -->
         <div id="mobile-menu" class="md:hidden hidden glass">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10 transition duration-300">Accueil</a>
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10 transition duration-300 neon-text">Accueil</a>
                 <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10 transition duration-300">À propos</a>
                 <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10 transition duration-300">Compétences</a>
                 <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10 transition duration-300">Projets</a>
@@ -270,53 +419,58 @@
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-indigo-900/30 to-blue-900/30"></div>
             <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-neon/10 blur-3xl -z-10"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-matrix/10 blur-3xl -z-10"></div>
+            <div class="absolute top-1/3 right-1/3 w-40 h-40 rounded-full bg-quantum/10 blur-3xl -z-10"></div>
         </div>
         
         <div class="container mx-auto px-6 py-20 md:py-32 relative z-10">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0 animate-text" style="animation-delay: 0.2s;">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                        Bonjour, je suis <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400">Euben José</span>
+                        <span class="gradient-text futurist-font">BONJUR, JE SUIS</span><br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon via-matrix to-quantum futurist-font">EUBEN JOSÉ</span>
                     </h1>
-                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8 text-gray-300">
-                        Développeur <span class="futurist-font text-accent">Full Stack</span> Junior
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8 text-gray-300 futurist-font">
+                        DÉVELOPPEUR <span class="gradient-text">FULL STACK</span>
                     </h2>
                     <p class="text-lg md:text-xl mb-8 max-w-lg text-gray-300">
                         Je crée des applications web modernes et réactives avec Django et JavaScript.
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#projects" class="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg hover:shadow-xl">
-                            Mes projets
+                        <a href="#projects" class="bg-gradient-to-r from-neon to-matrix hover:from-neon/90 hover:to-matrix/90 text-cosmic font-bold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg hover:shadow-xl futurist-font">
+                            MES PROJETS
                         </a>
-                        <a href="image/cv1.pdf" download="cv1.pdf" class="glass-light hover:bg-white/20 border border-white/10 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg hover:shadow-xl">
-                            Télécharger mon CV <i class="fas fa-download ml-2"></i>
+                        <a href="image/cv1.pdf" download="cv1.pdf" class="glass-light hover:bg-white/20 border border-neon/30 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-center shadow-lg hover:shadow-xl futurist-font">
+                            TÉLÉCHARGER MON CV <i class="fas fa-download ml-2"></i>
                         </a>
                     </div>
                     
                     <div class="mt-12 flex space-x-6">
-                        <a href="http://github.com/Randimbisoa179" target="_blank" class="text-gray-300 hover:text-white text-2xl transition duration-300">
+                        <a href="http://github.com/Randimbisoa179" target="_blank" class="text-gray-300 hover:text-neon text-2xl transition duration-300">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="http://www.linkedin.com/in/tyran-randimbisoa-829424362" target="_blank" class="text-gray-300 hover:text-white text-2xl transition duration-300">
+                        <a href="http://www.linkedin.com/in/tyran-randimbisoa-829424362" target="_blank" class="text-gray-300 hover:text-neon text-2xl transition duration-300">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="http://twitter.com/@TyranBen" class="text-gray-300 hover:text-white text-2xl transition duration-300">
+                        <a href="http://twitter.com/@TyranBen" class="text-gray-300 hover:text-neon text-2xl transition duration-300">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center animate-text" style="animation-delay: 0.4s;">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl transform hover:scale-105 transition duration-500 group">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-neon/30 shadow-2xl transform hover:scale-105 transition duration-500 group cyber-border">
                         <img src="image/image.jpg" alt="Photo de profil" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-blue-500/30 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-neon/20 to-matrix/20 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div class="hologram-effect"></div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Effet de lumières -->
-        <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-purple-500/20 blur-3xl -z-10"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full bg-blue-500/20 blur-3xl -z-10"></div>
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-neon/20 blur-3xl -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full bg-matrix/20 blur-3xl -z-10"></div>
     </section>
 
     <!-- Section À Propos -->
@@ -327,48 +481,49 @@
         
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-16 animate-text">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">À Propos de Moi</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 gradient-text futurist-font">À PROPOS DE MOI</h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto">Découvrez mon parcours et ma passion pour le développement</p>
             </div>
             
             <div class="flex flex-col lg:flex-row gap-12">
                 <!-- Photo et infos personnelles -->
                 <div class="lg:w-1/3 animate-text" style="animation-delay: 0.2s;">
-                    <div class="glass rounded-2xl shadow-xl p-8 sticky top-24 border border-white/10">
-                        <div class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-white/20 mb-6 shadow-lg">
+                    <div class="glass rounded-2xl shadow-xl p-8 sticky top-24 border border-neon/30 cyber-border">
+                        <div class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-neon/30 mb-6 shadow-lg cyber-border">
                             <img src="image/image.jpg" alt="Photo de profil" class="w-full h-full object-cover">
+                            <div class="hologram-effect"></div>
                         </div>
                         
-                        <h3 class="text-2xl font-bold text-center text-white mb-2">RANDIMBISOAHERINIRINA Euben José Tyran</h3>
-                        <p class="text-center text-accent font-medium mb-6">Développeur Full Stack Junior</p>
+                        <h3 class="text-2xl font-bold text-center text-white mb-2 futurist-font">RANDIMBISOAHERINIRINA Euben José Tyran</h3>
+                        <p class="text-center text-neon font-medium mb-6 futurist-font">DÉVELOPPEUR FULL STACK</p>
                         
                         <div class="space-y-4">
                             <div class="flex items-center">
                                 <div class="bg-white/10 p-2 rounded-lg mr-4">
-                                    <i class="fas fa-map-marker-alt text-accent"></i>
+                                    <i class="fas fa-map-marker-alt text-neon"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-400 text-sm">Localisation</p>
+                                    <p class="text-gray-400 text-sm">LOCALISATION</p>
                                     <p class="font-medium text-white">Fianarantsoa, Madagascar</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-center">
                                 <div class="bg-white/10 p-2 rounded-lg mr-4">
-                                    <i class="fas fa-envelope text-accent"></i>
+                                    <i class="fas fa-envelope text-neon"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-400 text-sm">Email</p>
+                                    <p class="text-gray-400 text-sm">EMAIL</p>
                                     <p class="font-medium text-white">tyranrandimbisoa@gmail.com</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-center">
                                 <div class="bg-white/10 p-2 rounded-lg mr-4">
-                                    <i class="fas fa-phone text-accent"></i>
+                                    <i class="fas fa-phone text-neon"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-400 text-sm">Téléphone</p>
+                                    <p class="text-gray-400 text-sm">TÉLÉPHONE</p>
                                     <p class="font-medium text-white">+261 33 35 308 12</p>
                                 </div>
                             </div>
@@ -379,8 +534,8 @@
                 <!-- Contenu principal -->
                 <div class="lg:w-2/3">
                     <!-- Section Présentation -->
-                    <div class="glass rounded-2xl shadow-xl p-8 mb-8 border border-white/10 animate-text" style="animation-delay: 0.3s;">
-                        <h3 class="text-2xl font-bold text-white mb-4">Qui suis-je ?</h3>
+                    <div class="glass rounded-2xl shadow-xl p-8 mb-8 border border-neon/30 cyber-border animate-text" style="animation-delay: 0.3s;">
+                        <h3 class="text-2xl font-bold text-white mb-4 gradient-text futurist-font">QUI SUIS-JE ?</h3>
                         <p class="text-gray-300 mb-6">
                             Passionné par les technologies web depuis mon plus jeune âge, je me suis spécialisé dans le développement full stack avec une préférence pour les frameworks JavaScript et Python. Mon objectif est de créer des applications performantes, accessibles et offrant une excellente expérience utilisateur.
                         </p>
@@ -390,8 +545,8 @@
                     </div>         
                     
                     <!-- Section Formation -->
-                    <div class="glass rounded-2xl shadow-xl p-8 border border-white/10 animate-text" style="animation-delay: 0.5s;">
-                        <h3 class="text-2xl font-bold text-white mb-6">Formation</h3>
+                    <div class="glass rounded-2xl shadow-xl p-8 border border-neon/30 cyber-border animate-text" style="animation-delay: 0.5s;">
+                        <h3 class="text-2xl font-bold text-white mb-6 gradient-text futurist-font">FORMATION</h3>
                         
                         <div class="timeline">
                             <!-- Formation 1 -->
@@ -399,10 +554,10 @@
                                 <div class="timeline-dot">
                                     <i class="fas fa-graduation-cap text-white text-xs"></i>
                                 </div>
-                                <div class="glass-light p-6 rounded-xl border border-white/10">
+                                <div class="glass-light p-6 rounded-xl border border-neon/30">
                                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                                         <h4 class="font-bold text-white">Deuxième année en Informatique</h4>
-                                        <span class="text-sm text-accent bg-white/10 px-3 py-1 rounded-full">2024 - 2025</span>
+                                        <span class="text-sm text-neon bg-white/10 px-3 py-1 rounded-full">2024 - 2025</span>
                                     </div>
                                     <p class="text-gray-300 font-medium mb-2">Université d'ENI Fianarantsoa</p>
                                     <p class="text-gray-300 text-sm mb-4">
@@ -416,10 +571,10 @@
                                 <div class="timeline-dot">
                                     <i class="fas fa-graduation-cap text-white text-xs"></i>
                                 </div>
-                                <div class="glass-light p-6 rounded-xl border border-white/10">
+                                <div class="glass-light p-6 rounded-xl border border-neon/30">
                                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                                         <h4 class="font-bold text-white">Baccalauréat Scientifique</h4>
-                                        <span class="text-sm text-accent bg-white/10 px-3 py-1 rounded-full">2023</span>
+                                        <span class="text-sm text-neon bg-white/10 px-3 py-1 rounded-full">2023</span>
                                     </div>
                                     <p class="text-gray-300 font-medium mb-2">Lycée Raherivelo Ramamonjy Fianarantsoa</p>
                                     <p class="text-gray-300 text-sm">
@@ -443,18 +598,18 @@
         
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 animate-text">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Mes Compétences</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 gradient-text futurist-font">MES COMPÉTENCES</h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto">Technologies que j'utilise pour créer des solutions performantes</p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <!-- Colonne Frontend -->
-                <div class="glass p-8 rounded-xl border border-white/10 transform hover:-translate-y-2 transition duration-500 animate-text" style="animation-delay: 0.2s;">
+                <div class="glass p-8 rounded-xl border border-neon/30 cyber-border transform hover:-translate-y-2 transition duration-500 animate-text" style="animation-delay: 0.2s;">
                     <div class="flex items-center mb-6">
                         <div class="bg-white/10 p-3 rounded-full mr-4">
-                            <i class="fas fa-laptop-code text-accent text-xl"></i>
+                            <i class="fas fa-laptop-code text-neon text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Frontend</h3>
+                        <h3 class="text-xl font-bold text-white futurist-font">FRONTEND</h3>
                     </div>
                     
                     <div class="space-y-5">
@@ -465,7 +620,7 @@
                                 <span class="text-gray-300">95%</span>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2.5 rounded-full" style="width: 95%"></div>
+                                <div class="bg-gradient-to-r from-neon to-matrix h-2.5 rounded-full" style="width: 95%"></div>
                             </div>
                         </div>
                         
@@ -476,7 +631,7 @@
                                 <span class="text-gray-300">85%</span>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
+                                <div class="bg-gradient-to-r from-neon to-matrix h-2.5 rounded-full" style="width: 85%"></div>
                             </div>
                         </div>
                         
@@ -487,7 +642,7 @@
                                 <span class="text-gray-300">80%</span>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+                                <div class="bg-gradient-to-r from-neon to-matrix h-2.5 rounded-full" style="width: 80%"></div>
                             </div>
                         </div>
                         
@@ -498,19 +653,19 @@
                                 <span class="text-gray-300">75%</span>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2.5 rounded-full" style="width: 75%"></div>
+                                <div class="bg-gradient-to-r from-neon to-matrix h-2.5 rounded-full" style="width: 75%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Colonne Backend -->
-                <div class="glass p-8 rounded-xl border border-white/10 transform hover:-translate-y-2 transition duration-500 animate-text" style="animation-delay: 0.4s;">
+                <div class="glass p-8 rounded-xl border border-neon/30 cyber-border transform hover:-translate-y-2 transition duration-500 animate-text" style="animation-delay: 0.4s;">
                     <div class="flex items-center mb-6">
                         <div class="bg-white/10 p-3 rounded-full mr-4">
-                            <i class="fas fa-server text-accent text-xl"></i>
+                            <i class="fas fa-server text-matrix text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Backend</h3>
+                        <h3 class="text-xl font-bold text-white futurist-font">BACKEND</h3>
                     </div>
                     
                     <div class="space-y-5">
@@ -521,7 +676,7 @@
                                 <span class="text-gray-300">75%</span>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2.5 rounded-full" style="width: 75%"></div>
+                                <div class="bg-gradient-to-r from-neon to-matrix h-2.5 rounded-full" style="width: 75%"></div>
                             </div>
                         </div>
                         
@@ -532,7 +687,7 @@
                                 <span class="text-gray-300">70%</span>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+                                <div class="bg-gradient-to-r from-neon to-matrix h-2.5 rounded-full" style="width: 70%"></div>
                             </div>
                         </div>
                         
@@ -543,7 +698,7 @@
                                 <span class="text-gray-300">65%</span>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2.5 rounded-full" style="width: 65%"></div>
+                                <div class="bg-gradient-to-r from-neon to-matrix h-2.5 rounded-full" style="width: 65%"></div>
                             </div>
                         </div>
                         
@@ -554,7 +709,7 @@
                                 <span class="text-gray-300">60%</span>
                             </div>
                             <div class="w-full bg-white/10 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2.5 rounded-full" style="width: 60%"></div>
+                                <div class="bg-gradient-to-r from-neon to-matrix h-2.5 rounded-full" style="width: 60%"></div>
                             </div>
                         </div>
                     </div>
@@ -563,43 +718,43 @@
             
             <!-- Autres compétences -->
             <div class="mt-12 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
-                <div class="glass p-6 rounded-xl border border-white/10 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.6s;">
+                <div class="glass p-6 rounded-xl border border-neon/30 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.6s;">
                     <div class="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-mobile-alt text-accent text-2xl"></i>
+                        <i class="fas fa-mobile-alt text-neon text-2xl"></i>
                     </div>
-                    <h4 class="font-bold text-white mb-2">Système d'exploitation</h4>
+                    <h4 class="font-bold text-white mb-2 futurist-font">SYSTÈMES</h4>
                     <p class="text-gray-300 text-sm">Windows, Linux</p>
                 </div>
                 
-                <div class="glass p-6 rounded-xl border border-white/10 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.7s;">
+                <div class="glass p-6 rounded-xl border border-neon/30 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.7s;">
                     <div class="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-tools text-accent text-2xl"></i>
+                        <i class="fas fa-tools text-matrix text-2xl"></i>
                     </div>
-                    <h4 class="font-bold text-white mb-2">Outils</h4>
+                    <h4 class="font-bold text-white mb-2 futurist-font">OUTILS</h4>
                     <p class="text-gray-300 text-sm">Git, Docker</p>
                 </div>
                 
-                <div class="glass p-6 rounded-xl border border-white/10 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.8s;">
+                <div class="glass p-6 rounded-xl border border-neon/30 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.8s;">
                     <div class="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-paint-brush text-accent text-2xl"></i>
+                        <i class="fas fa-paint-brush text-quantum text-2xl"></i>
                     </div>
-                    <h4 class="font-bold text-white mb-2">UI/UX Design</h4>
+                    <h4 class="font-bold text-white mb-2 futurist-font">UI/UX DESIGN</h4>
                     <p class="text-gray-300 text-sm">Figma, Adobe XD</p>
                 </div>
                 
-                <div class="glass p-6 rounded-xl border border-white/10 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.9s;">
+                <div class="glass p-6 rounded-xl border border-neon/30 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 0.9s;">
                     <div class="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-code text-accent text-2xl"></i>
+                        <i class="fas fa-code text-neon text-2xl"></i>
                     </div>
-                    <h4 class="font-bold text-white mb-2">Autres langages</h4>
+                    <h4 class="font-bold text-white mb-2 futurist-font">LANGAGES</h4>
                     <p class="text-gray-300 text-sm">C++, Java, PHP</p>
                 </div>
                 
-                <div class="glass p-6 rounded-xl border border-white/10 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 1s;">
+                <div class="glass p-6 rounded-xl border border-neon/30 text-center transform hover:-translate-y-2 transition duration-300 animate-text" style="animation-delay: 1s;">
                     <div class="bg-white/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-language text-accent text-2xl"></i>
+                        <i class="fas fa-language text-matrix text-2xl"></i>
                     </div>
-                    <h4 class="font-bold text-white mb-2">Langues</h4>
+                    <h4 class="font-bold text-white mb-2 futurist-font">LANGUES</h4>
                     <p class="text-gray-300 text-sm">Français, Anglais, Malagasy</p>
                 </div>
             </div>
@@ -614,22 +769,22 @@
         
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 animate-text">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Mes Réalisations</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 gradient-text futurist-font">MES RÉALISATIONS</h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto">Découvrez mes projets les plus récents avec démonstrations interactives</p>
             </div>
             
             <!-- Filtres par catégorie -->
             <div class="flex flex-wrap justify-center gap-4 mb-12 animate-text" style="animation-delay: 0.3s;">
-                <button class="filter-btn px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg" data-filter="all">Tous</button>
-                <button class="filter-btn px-4 py-2 rounded-full glass-light hover:bg-white/20 border border-white/10 text-white shadow-lg" data-filter="frontend">Frontend</button>
-                <button class="filter-btn px-4 py-2 rounded-full glass-light hover:bg-white/20 border border-white/10 text-white shadow-lg" data-filter="backend">Backend</button>
-                <button class="filter-btn px-4 py-2 rounded-full glass-light hover:bg-white/20 border border-white/10 text-white shadow-lg" data-filter="fullstack">Fullstack</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-gradient-to-r from-neon to-matrix text-cosmic shadow-lg futurist-font" data-filter="all">TOUS</button>
+                <button class="filter-btn px-4 py-2 rounded-full glass-light hover:bg-white/20 border border-neon/30 text-white shadow-lg futurist-font" data-filter="frontend">FRONTEND</button>
+                <button class="filter-btn px-4 py-2 rounded-full glass-light hover:bg-white/20 border border-neon/30 text-white shadow-lg futurist-font" data-filter="backend">BACKEND</button>
+                <button class="filter-btn px-4 py-2 rounded-full glass-light hover:bg-white/20 border border-neon/30 text-white shadow-lg futurist-font" data-filter="fullstack">FULLSTACK</button>
             </div>
     
             <!-- Grille de projets -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Projet 1 - Avec effet de survol -->
-                <div class="project-card relative group overflow-hidden rounded-xl border border-white/10" data-category="fullstack">
+                <div class="project-card relative group overflow-hidden rounded-xl border border-neon/30 cyber-border" data-category="fullstack">
                     <div class="h-60 overflow-hidden relative">
                         <img src="image/Gemini.png" alt="Projet 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
@@ -642,11 +797,11 @@
                                     <span class="bg-white/10 text-white text-xs px-3 py-1 rounded">MySQL</span>
                                 </div>
                                 <div class="flex gap-3">
-                                    <a href="https://github.com/Randimbisoa179/pharmaMED" target="_blank" class="text-white hover:text-accent font-medium">
-                                        <i class="fab fa-github fa-lg"></i> Code
+                                    <a href="https://github.com/Randimbisoa179/pharmaMED" target="_blank" class="text-white hover:text-neon font-medium">
+                                        <i class="fab fa-github fa-lg"></i> CODE
                                     </a>
-                                    <a href="#" class="text-white hover:text-accent font-medium">
-                                        <i class="fas fa-external-link-alt fa-lg"></i> Live
+                                    <a href="#" class="text-white hover:text-neon font-medium">
+                                        <i class="fas fa-external-link-alt fa-lg"></i> LIVE
                                     </a>
                                 </div>
                             </div>
@@ -661,12 +816,13 @@
                             <span class="bg-white/10 text-white text-xs px-3 py-1 rounded">MySQL</span>
                         </div>
                     </div>
+                    <div class="hologram-effect"></div>
                 </div>
     
                 <!-- Projet 2 - Avec badge "Nouveau" -->
-                <div class="project-card relative group overflow-hidden rounded-xl border border-white/10" data-category="backend">
+                <div class="project-card relative group overflow-hidden rounded-xl border border-neon/30 cyber-border" data-category="backend">
                     <div class="absolute top-4 right-4 z-10">
-                        <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">NOUVEAU</span>
+                        <span class="bg-gradient-to-r from-neon to-matrix text-cosmic text-xs font-bold px-2 py-1 rounded-full shadow-lg futurist-font">NOUVEAU</span>
                     </div>
                     <div class="h-60 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Projet 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -680,8 +836,8 @@
                                     <span class="bg-white/10 text-white text-xs px-3 py-1 rounded">MySQL</span>
                                 </div>
                                 <div class="flex gap-3">
-                                    <a href="https://github.com/Randimbisoa179/pharmaMED" target="_blank" class="text-white hover:text-accent font-medium">
-                                        <i class="fab fa-github fa-lg"></i> Code
+                                    <a href="https://github.com/Randimbisoa179/pharmaMED" target="_blank" class="text-white hover:text-neon font-medium">
+                                        <i class="fab fa-github fa-lg"></i> CODE
                                     </a>
                                 </div>
                             </div>
@@ -696,10 +852,11 @@
                             <span class="bg-white/10 text-white text-xs px-3 py-1 rounded">MySQL</span>
                         </div>
                     </div>
+                    <div class="hologram-effect"></div>
                 </div>
     
                 <!-- Projet 3 - Avec animation au survol -->
-                <div class="project-card relative group overflow-hidden rounded-xl border border-white/10" data-category="fullstack">
+                <div class="project-card relative group overflow-hidden rounded-xl border border-neon/30 cyber-border" data-category="fullstack">
                     <div class="h-60 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Projet 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
@@ -712,8 +869,8 @@
                                     <span class="bg-white/10 text-white text-xs px-3 py-1 rounded">MySQL</span>
                                 </div>
                                 <div class="flex gap-3">
-                                    <a href="https://github.com/Ranohavison/biblioApp_qt" target="_blank" class="text-white hover:text-accent font-medium">
-                                        <i class="fab fa-github fa-lg"></i> Code
+                                    <a href="https://github.com/Ranohavison/biblioApp_qt" target="_blank" class="text-white hover:text-neon font-medium">
+                                        <i class="fab fa-github fa-lg"></i> CODE
                                     </a>
                                 </div>
                             </div>
@@ -728,13 +885,14 @@
                             <span class="bg-white/10 text-white text-xs px-3 py-1 rounded">MySQL</span>
                         </div>
                     </div>
+                    <div class="hologram-effect"></div>
                 </div>
             </div>
     
             <!-- Bouton "Voir plus" -->
             <div class="text-center mt-12 animate-text" style="animation-delay: 0.5s;">
-                <button class="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:from-purple-700 hover:to-blue-700 transition shadow-lg hover:shadow-xl inline-flex items-center">
-                    Charger plus de projets
+                <button class="px-8 py-3 bg-gradient-to-r from-neon to-matrix hover:from-neon/90 hover:to-matrix/90 text-cosmic rounded-full font-medium transition shadow-lg hover:shadow-xl inline-flex items-center futurist-font">
+                    CHARGER PLUS DE PROJETS
                     <i class="fas fa-arrow-down ml-2"></i>
                 </button>
             </div>
@@ -742,36 +900,70 @@
     </section>
 
     <!-- Footer -->
-    <footer class="glass border-t border-white/10 py-12">
+    <footer class="glass border-t border-neon/10 py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0 text-center md:text-left">
-                    <h3 class="text-2xl font-bold mb-2 text-white">RANDIMBISOAHERINIRINA Euben José Tyran</h3>
-                    <p class="text-gray-300">Développeur Full Stack Junior</p>
+                    <h3 class="text-2xl font-bold mb-2 text-white futurist-font">RANDIMBISOAHERINIRINA Euben José Tyran</h3>
+                    <p class="text-gray-300 futurist-font">DÉVELOPPEUR FULL STACK</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Accueil</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition duration-300">À propos</a>
-                    <a href="#skills" class="text-gray-300 hover:text-white transition duration-300">Compétences</a>
-                    <a href="#projects" class="text-gray-300 hover:text-white transition duration-300">Projets</a>
+                    <a href="#home" class="text-gray-300 hover:text-neon transition duration-300 futurist-font">ACCUEIL</a>
+                    <a href="#about" class="text-gray-300 hover:text-neon transition duration-300 futurist-font">À PROPOS</a>
+                    <a href="#skills" class="text-gray-300 hover:text-neon transition duration-300 futurist-font">COMPÉTENCES</a>
+                    <a href="#projects" class="text-gray-300 hover:text-neon transition duration-300 futurist-font">PROJETS</a>
                 </div>
             </div>
-            <div class="border-t border-white/10 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Tous droits réservés. Conçu avec ❤️ par Euben José</p>
+            <div class="border-t border-neon/10 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 TOUS DROITS RÉSERVÉS. CONÇU AVEC <span class="text-neon">❤️</span> PAR EUBEN JOSÉ</p>
             </div>
         </div>
     </footer>
 
     <!-- Bouton retour en haut -->
-    <a href="#home" class="back-to-top bg-gradient-to-r from-purple-600 to-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:from-purple-700 hover:to-blue-700 transition duration-300">
+    <a href="#home" class="back-to-top text-white w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
         <i class="fas fa-arrow-up"></i>
     </a>
 
     <script>
-        // Effet de particules
+        // Effet de curseur personnalisé
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        window.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+            
+            cursorOutline.style.left = `${e.clientX}px`;
+            cursorOutline.style.top = `${e.clientY}px`;
+            
+            // Effet sur les éléments interactifs
+            const interactables = document.querySelectorAll('a, button, .project-card, .cyber-border');
+            let isInteractable = false;
+            
+            interactables.forEach(el => {
+                if (el.contains(e.target)) {
+                    isInteractable = true;
+                }
+            });
+            
+            if (isInteractable) {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorDot.style.opacity = '0.8';
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorOutline.style.borderColor = 'var(--neon)';
+            } else {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorDot.style.opacity = '1';
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorOutline.style.borderColor = 'var(--matrix)';
+            }
+        });
+        
+        // Effet de particules avancé
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
+            const particleCount = 50;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -782,17 +974,19 @@
                 const posY = Math.random() * 100;
                 
                 // Taille aléatoire
-                const size = Math.random() * 3 + 1;
+                const size = Math.random() * 4 + 1;
                 
                 // Animation aléatoire
                 const duration = Math.random() * 20 + 10;
                 const delay = Math.random() * 5;
+                const color = Math.random() > 0.5 ? 'var(--neon)' : 'var(--matrix)';
                 
                 // Appliquer les styles
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
+                particle.style.backgroundColor = color;
                 particle.style.opacity = Math.random() * 0.5 + 0.1;
                 particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
                 
@@ -811,13 +1005,13 @@
             btn.addEventListener('click', function() {
                 // Mettre à jour le bouton actif
                 document.querySelectorAll('.filter-btn').forEach(b => {
-                    b.classList.remove('bg-gradient-to-r', 'from-purple-600', 'to-blue-600', 'text-white');
-                    b.classList.add('glass-light', 'hover:bg-white/20', 'border', 'border-white/10', 'text-white');
+                    b.classList.remove('bg-gradient-to-r', 'from-neon', 'to-matrix', 'text-cosmic');
+                    b.classList.add('glass-light', 'hover:bg-white/20', 'border', 'border-neon/30', 'text-white');
                 });
                 
                 if (!this.classList.contains('filter-btn[data-filter="all"]')) {
-                    this.classList.add('bg-gradient-to-r', 'from-purple-600', 'to-blue-600', 'text-white');
-                    this.classList.remove('glass-light', 'hover:bg-white/20', 'border', 'border-white/10', 'text-white');
+                    this.classList.add('bg-gradient-to-r', 'from-neon', 'to-matrix', 'text-cosmic');
+                    this.classList.remove('glass-light', 'hover:bg-white/20', 'border', 'border-neon/30', 'text-white');
                 }
                 
                 // Filtrer les projets
